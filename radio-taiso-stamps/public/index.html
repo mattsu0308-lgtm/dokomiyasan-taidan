@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>夏の朝活ラジオ体操スタンプラリー</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
+</head>
+<body>
+  <header class="hero">
+    <div class="sun">☀️</div>
+    <h1 id="event-name">夏の朝活ラジオ体操スタンプラリー</h1>
+    <p id="event-period" class="period"></p>
+  </header>
+
+  <section class="stamp-box card">
+    <div class="clock-row">
+      <span id="today-label"></span>
+      <span id="now-clock" class="clock"></span>
+    </div>
+    <p id="window-label" class="window-label"></p>
+
+    <div class="stamp-form">
+      <input id="name-input" list="name-list" maxlength="20" placeholder="お名前(はじめての人はここで登録)" autocomplete="off">
+      <datalist id="name-list"></datalist>
+      <button id="stamp-btn" class="stamp-btn">今日のスタンプを押す!</button>
+    </div>
+    <p id="message" class="message" role="status"></p>
+  </section>
+
+  <section class="card">
+    <h2>🎁 ごほうびライン</h2>
+    <ul id="rewards" class="rewards"></ul>
+  </section>
+
+  <section>
+    <h2 class="board-title">🌻 みんなのスタンプカード <span id="today-count" class="today-count"></span></h2>
+    <div id="board" class="board"></div>
+  </section>
+
+  <footer>
+    <p>毎朝みんなで集まって、元気にスタートしよう!</p>
+  </footer>
+
+  <div id="stamp-overlay" class="stamp-overlay" hidden>
+    <div class="big-stamp">出</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

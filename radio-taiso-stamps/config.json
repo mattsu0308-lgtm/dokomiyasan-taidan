@@ -1,0 +1,29 @@
+{
+  "eventName": "夏の朝活ラジオ体操スタンプラリー",
+  "startDate": "2026-07-01",
+  "endDate": "2026-07-31",
+  "windowStart": "06:30",
+  "windowEnd": "07:00",
+  "excludeWeekdays": [],
+  "rewards": [
+    {
+      "days": 5,
+      "label": "アイスキャンディ賞 🍦"
+    },
+    {
+      "days": 10,
+      "label": "ジュース賞 🧃"
+    },
+    {
+      "days": 20,
+      "label": "スイカ賞 🍉"
+    },
+    {
+      "days": 31,
+      "label": "皆勤賞 🏆 素敵なプレゼント!"
+    }
+  ],
+  "adminPass": "himawari2026",
+  "testMode": false,
+  "port": 3000
+}
