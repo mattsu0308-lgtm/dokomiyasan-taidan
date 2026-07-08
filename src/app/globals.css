@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/*
+ * カラーパレット(docs/design-asset-pipeline.md と同期)
+ * base:      あたたかい白・生成り
+ * primary:   やさしいオレンジ・テラコッタ
+ * secondary: 淡いグリーン
+ * accent:    卵・チーズを連想する淡い黄色
+ * text:      濃いブラウン・チャコール
+ * muted:     薄いベージュ・グレージュ
+ */
+:root {
+  --base: #faf6f0;
+  --base-deep: #f3ece2;
+  --primary: #e07a5f;
+  --primary-deep: #c96146;
+  --secondary: #81b29a;
+  --secondary-soft: #dcebe2;
+  --accent: #f2cc8f;
+  --accent-soft: #fbeed7;
+  --ink: #3d2c29;
+  --ink-soft: #6f5f58;
+  --muted: #e8e0d5;
+}
+
+@theme inline {
+  /* "base" は text-base(フォントサイズ)と衝突するため色名は cream にする */
+  --color-cream: var(--base);
+  --color-cream-deep: var(--base-deep);
+  --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
+  --color-secondary: var(--secondary);
+  --color-secondary-soft: var(--secondary-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+}
+
+body {
+  background: var(--base);
+  color: var(--ink);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 横スクロールのチップ・カルーセルでスクロールバーを隠す */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
