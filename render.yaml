@@ -1,0 +1,16 @@
+# Render (https://render.com) にワンクリックデプロイするための設定
+# Render のダッシュボードで「New +」→「Blueprint」→ このリポジトリを選ぶだけで公開できます
+services:
+  - type: web
+    name: radio-taiso-stamps
+    runtime: node
+    plan: free
+    rootDir: radio-taiso-stamps
+    buildCommand: "echo 'no build needed'"
+    startCommand: node server.js
+    # 注意: 無料プランはサーバー再起動でデータが消えることがあります。
+    # 有料プラン(Starter)にすると下のディスク設定でデータを永続化できます:
+    # disk:
+    #   name: taiso-data
+    #   mountPath: /opt/render/project/src/radio-taiso-stamps/data
+    #   sizeGB: 1

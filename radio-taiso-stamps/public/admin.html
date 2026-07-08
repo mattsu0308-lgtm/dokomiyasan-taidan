@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理ページ | 夏の朝活ラジオ体操スタンプラリー</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗂️</text></svg>">
+</head>
+<body>
+  <header class="hero">
+    <div class="sun">🗂️</div>
+    <h1>管理ページ</h1>
+    <p class="period"><a href="./">← スタンプカードにもどる</a></p>
+  </header>
+
+  <section id="login-box" class="card">
+    <h2>🔑 管理者パスワード</h2>
+    <div class="stamp-form">
+      <input id="pass-input" type="password" placeholder="パスワード">
+      <button id="login-btn" class="stamp-btn">ひらく</button>
+    </div>
+    <p id="login-message" class="message"></p>
+  </section>
+
+  <section id="admin-main" hidden>
+    <div class="card admin-summary-card">
+      <h2>📊 参加状況まとめ</h2>
+      <div id="summary" class="summary-grid"></div>
+      <div class="admin-actions">
+        <button id="csv-btn" class="sub-btn">CSVをダウンロード</button>
+        <label class="sub-label"><input id="edit-mode" type="checkbox"> 修正モード(表のマスをクリックでスタンプを付け外し)</label>
+      </div>
+    </div>
+
+    <div class="card admin-table-card">
+      <h2>🗓 出席表 <span class="hint">◎=スタンプあり</span></h2>
+      <div class="table-scroll">
+        <table id="attend-table" class="attend-table"></table>
+      </div>
+    </div>
+  </section>
+
+  <script src="admin.js"></script>
+</body>
+</html>

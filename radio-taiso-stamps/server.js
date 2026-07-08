@@ -119,6 +119,14 @@ function handleStamp(res, body) {
   sendJson(res, 200, { ok: true, date: status.date, time: status.time, total: Object.keys(p.stamps).length });
 }
 
+// 管理者ページのパスワード確認
+function handleAdminVerify(res, body) {
+  if (String(body.pass || '') !== config.adminPass) {
+    return sendJson(res, 401, { error: '管理者パスワードが違います' });
+  }
+  sendJson(res, 200, { ok: true });
+}
+
 // 管理者用: 押し忘れの補完や誤打の取り消し
 function handleAdminStamp(res, body) {
   if (String(body.pass || '') !== config.adminPass) {
@@ -197,6 +205,7 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === '/api/state' && req.method === 'GET') return handleState(res);
     if (url.pathname === '/api/stamp' && req.method === 'POST') return handleStamp(res, await readBody(req));
     if (url.pathname === '/api/admin/stamp' && req.method === 'POST') return handleAdminStamp(res, await readBody(req));
+    if (url.pathname === '/api/admin/verify' && req.method === 'POST') return handleAdminVerify(res, await readBody(req));
     if (req.method === 'GET') return serveStatic(res, url.pathname);
     res.writeHead(405); res.end();
   } catch (e) {
