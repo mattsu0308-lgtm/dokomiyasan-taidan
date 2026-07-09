@@ -1,15 +1,19 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { filterAndSortRecipes } from "@/lib/data/filter";
 import type { RecipeSort, RecipeViewModel } from "@/lib/data/types";
 import { RecipeGrid } from "@/components/RecipeCard";
 
+const INITIAL = 12; // 最初に見せる件数
+const STEP = 30; // 「もっと見る」で増える件数
+
 /**
  * ホームの「レシピ一覧」セクション(クライアント)。
- * 静的エクスポートのため並び替えは URL クエリ(?sort=newest)を
- * useSearchParams で読んでクライアント側で行う。
+ * ・並び替え(新しい順/古い順)は URL クエリ(?sort=oldest)で共有可能
+ * ・全件を一度に出すと縦に長すぎるので、初期 INITIAL 件→「もっと見る」で追加
  */
 export function HomeRecipeList({
   allRecipes,
@@ -18,8 +22,17 @@ export function HomeRecipeList({
 }) {
   const searchParams = useSearchParams();
   const sort: RecipeSort =
-    searchParams.get("sort") === "newest" ? "newest" : "recommended";
+    searchParams.get("sort") === "oldest" ? "oldest" : "newest";
+  const [visible, setVisible] = useState(INITIAL);
+
+  // 並び替えを切り替えたら先頭から見せ直す
+  useEffect(() => {
+    setVisible(INITIAL);
+  }, [sort]);
+
   const recipes = filterAndSortRecipes(allRecipes, { sort });
+  const shown = recipes.slice(0, visible);
+  const remaining = recipes.length - shown.length;
 
   return (
     <section>
@@ -28,27 +41,42 @@ export function HomeRecipeList({
         <div className="flex gap-1.5 text-[12px]">
           <Link
             href="/"
-            className={`rounded-full px-3 py-1 ${
-              sort === "recommended"
-                ? "bg-primary font-bold text-white"
-                : "bg-cream-deep text-ink-soft"
-            }`}
-          >
-            おすすめ順
-          </Link>
-          <Link
-            href="/?sort=newest"
+            scroll={false}
             className={`rounded-full px-3 py-1 ${
               sort === "newest"
                 ? "bg-primary font-bold text-white"
                 : "bg-cream-deep text-ink-soft"
             }`}
           >
-            新着順
+            新しい順
+          </Link>
+          <Link
+            href="/?sort=oldest"
+            scroll={false}
+            className={`rounded-full px-3 py-1 ${
+              sort === "oldest"
+                ? "bg-primary font-bold text-white"
+                : "bg-cream-deep text-ink-soft"
+            }`}
+          >
+            古い順
           </Link>
         </div>
       </div>
-      <RecipeGrid recipes={recipes} />
+
+      <RecipeGrid recipes={shown} />
+
+      {remaining > 0 && (
+        <div className="mt-6 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setVisible((v) => v + STEP)}
+            className="rounded-full border border-primary bg-white px-6 py-2.5 text-sm font-bold text-primary-deep active:bg-cream-deep"
+          >
+            もっと見る（残り{remaining}件）
+          </button>
+        </div>
+      )}
     </section>
   );
 }

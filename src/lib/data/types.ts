@@ -87,7 +87,7 @@ export interface CollectionWithRecipes extends CollectionViewModel {
   recipes: RecipeViewModel[];
 }
 
-export type RecipeSort = "recommended" | "newest";
+export type RecipeSort = "newest" | "oldest";
 
 export interface RecipeQuery {
   /** キーワード(title / captionRaw / searchText / タグ名 の部分一致) */

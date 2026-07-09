@@ -13,7 +13,7 @@ export default async function SearchPage() {
   const provider = getDataProvider();
   const [tagNames, allRecipes] = await Promise.all([
     provider.listTagNames(),
-    provider.listRecipes({ sort: "recommended" }),
+    provider.listRecipes({ sort: "newest" }),
   ]);
 
   return (

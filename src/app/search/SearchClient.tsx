@@ -36,7 +36,7 @@ export function SearchClient({
   const results = filterAndSortRecipes(allRecipes, {
     keyword: q || undefined,
     tags: selectedTags.length ? selectedTags : undefined,
-    sort: "recommended",
+    sort: "newest",
   });
 
   const toggleHref = (tag: string) =>
