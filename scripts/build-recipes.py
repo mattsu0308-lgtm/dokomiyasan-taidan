@@ -47,23 +47,24 @@ for r in csv.DictReader(open(ROOT / "reels_cleaned.csv", encoding="utf-8-sig", n
 # 4a) サムネ: 公式エクスポート由来(extract-thumbs-from-export.py の出力)を全件参照
 thumbs_map = json.loads((ROOT / "public/images/thumbs/thumbs-map.json").read_text(encoding="utf-8"))
 
-# 4b) permalink: 2026-07-09以前に取得済みの15本の実リールコードのみ維持
-#    (taken_at UTC epoch → JST で突合。新規取得はしない。全件の正規取得はPhase Bの公式API同期で行う)
-PERMALINK_INDEX = ROOT / "scripts" / "permalink-index.json"
-def to_jst(epoch):
-    return datetime.fromtimestamp(epoch, tz=timezone.utc).astimezone(JST).replace(tzinfo=None)
-code_list = []
-if PERMALINK_INDEX.exists():
-    for t in json.loads(PERMALINK_INDEX.read_text(encoding="utf-8")):
-        if t["code"] != "DZEUrDzpII9":
-            code_list.append((to_jst(t["taken_at"]), t["code"]))
+# 4b) permalink: 公式API(sync-from-api.py)で取得した全投稿のリンクを timestamp で突合
+#    Instagram の timestamp(UTC) → JST に直して posted_at(JST) と照合する
+API_PERMALINK = ROOT / "scripts" / "permalink-api.json"
+api_list = []
+if API_PERMALINK.exists():
+    for i in json.loads(API_PERMALINK.read_text(encoding="utf-8")):
+        if i.get("permalink") and i.get("timestamp"):
+            tdt = datetime.strptime(i["timestamp"], "%Y-%m-%dT%H:%M:%S%z").astimezone(JST).replace(tzinfo=None)
+            api_list.append((tdt, i["permalink"]))
 
-def find_code(posted_at_str):
+def find_permalink(posted_at_str):
     dt = datetime.strptime(posted_at_str, "%Y-%m-%d %H:%M:%S")
-    for tdt, code in code_list:
-        if abs((tdt - dt).total_seconds()) <= 300:
-            return code
-    return None
+    best, best_diff = None, 301
+    for tdt, pl in api_list:
+        diff = abs((tdt - dt).total_seconds())
+        if diff < best_diff:
+            best, best_diff = pl, diff
+    return best
 
 recipes = []
 warn = []
@@ -96,7 +97,7 @@ for row in inputs:
     ph = t.get("placeholderCategory") or "default"
     if ph not in ALLOWED_PLACEHOLDER:
         ph = "default"
-    code = find_code(row["posted_at"])
+    permalink = find_permalink(row["posted_at"])
     thumb_file = thumbs_map.get(rid)
     if thumb_file:
         matched_thumbs += 1
@@ -106,7 +107,7 @@ for row in inputs:
         "source": "instagram",
         "title": t["title"],
         "captionRaw": src["caption"],
-        "permalink": f"https://www.instagram.com/reel/{code}/" if code else PROFILE_URL,
+        "permalink": permalink or PROFILE_URL,
         "postedAt": posted_iso,
         "ingredientTags": ing,
         "moodTags": mood,
@@ -170,7 +171,8 @@ ts = (
 out = ROOT / "src/data/recipes.generated.ts"
 out.write_text(ts, encoding="utf-8")
 
-print(f"レシピ: {len(recipes)}本 / サムネ紐付け: {matched_thumbs}本")
+real_links = sum(1 for r in recipes if "/reel/" in r["permalink"] or "/p/" in r["permalink"])
+print(f"レシピ: {len(recipes)}本 / サムネ紐付け: {matched_thumbs}本 / 実リンク: {real_links}本")
 print(f"まとめ: " + ", ".join(f"{c['title']}={len(c['recipeIds'])}本" for c in collections))
 if warn:
     print("警告:")
