@@ -1,0 +1,4 @@
+# 静的サイト設定（ビルド不要）
+[build]
+  publish = "."
+  command = ""
