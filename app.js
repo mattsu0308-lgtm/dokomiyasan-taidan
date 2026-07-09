@@ -266,6 +266,21 @@ function shiftMonth(delta) {
   renderMonth();
 }
 
+/* ---------- 月次一覧の開閉 ---------- */
+function toggleRecords() {
+  const btn = document.getElementById("btnToggleRecords");
+  const panel = document.getElementById("recordsPanel");
+  const label = btn.querySelector(".records-toggle-label");
+  const open = panel.hidden; // 今から開くか
+
+  panel.hidden = !open;
+  btn.setAttribute("aria-expanded", String(open));
+  btn.classList.toggle("open", open);
+  label.textContent = open ? "記録を閉じる" : "記録を見る（月次一覧）";
+
+  if (open) renderMonth();
+}
+
 /* ---------- 全体描画 ---------- */
 function renderAll() {
   renderToday();
@@ -289,6 +304,11 @@ function init() {
     .getElementById("btnNextMonth")
     .addEventListener("click", () => shiftMonth(1));
   document.getElementById("btnExportCsv").addEventListener("click", exportCsv);
+
+  // 月次一覧の表示/非表示トグル（初期は非表示）
+  document
+    .getElementById("btnToggleRecords")
+    .addEventListener("click", toggleRecords);
 
   // モーダル
   document

@@ -38,32 +38,40 @@
 
     <!-- 月次一覧セクション -->
     <section class="card">
-      <div class="month-bar">
-        <button class="btn-nav" id="btnPrevMonth" aria-label="前の月">‹</button>
-        <h2 class="month-title" id="monthTitle"></h2>
-        <button class="btn-nav" id="btnNextMonth" aria-label="次の月">›</button>
-      </div>
+      <button class="records-toggle" id="btnToggleRecords"
+              aria-expanded="false" aria-controls="recordsPanel">
+        <span class="records-toggle-label">記録を見る（月次一覧）</span>
+        <span class="records-toggle-icon" aria-hidden="true">▾</span>
+      </button>
 
-      <div class="month-summary" id="monthSummary"></div>
+      <div class="records-panel" id="recordsPanel" hidden>
+        <div class="month-bar">
+          <button class="btn-nav" id="btnPrevMonth" aria-label="前の月">‹</button>
+          <h2 class="month-title" id="monthTitle"></h2>
+          <button class="btn-nav" id="btnNextMonth" aria-label="次の月">›</button>
+        </div>
 
-      <div class="table-wrap">
-        <table class="records-table">
-          <thead>
-            <tr>
-              <th>日付</th>
-              <th>曜</th>
-              <th>出勤</th>
-              <th>退勤</th>
-              <th>稼働</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="recordsBody"></tbody>
-        </table>
-      </div>
+        <div class="month-summary" id="monthSummary"></div>
 
-      <div class="export-bar">
-        <button class="btn btn-csv" id="btnExportCsv">CSVダウンロード</button>
+        <div class="table-wrap">
+          <table class="records-table">
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>曜</th>
+                <th>出勤</th>
+                <th>退勤</th>
+                <th>稼働</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="recordsBody"></tbody>
+          </table>
+        </div>
+
+        <div class="export-bar">
+          <button class="btn btn-csv" id="btnExportCsv">CSVダウンロード</button>
+        </div>
       </div>
     </section>
   </main>
