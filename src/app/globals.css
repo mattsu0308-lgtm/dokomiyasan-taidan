@@ -46,6 +46,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/*
+ * 透明感のある水彩背景。iOS Safari が background-attachment: fixed に
+ * 非対応のため、固定レイヤー(body::before)で敷く。
+ * 画像未配置でも body の --base で表示が成立する。
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("/images/illustrations/bg-airy-blue.png") center / cover no-repeat;
+  pointer-events: none;
+}
+
 /* 横スクロールのチップ・カルーセルでスクロールバーを隠す */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

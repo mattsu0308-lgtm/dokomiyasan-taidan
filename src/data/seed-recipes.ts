@@ -25,6 +25,7 @@ function permalink(n: number): string {
 export const seedRecipes: SeedRecipe[] = [
   {
     id: "r001",
+    thumbnailUrl: "/images/thumbs/DADlJrPvdJw.jpg",
     source: "manual",
     title: "【サンプル】豚こまとキャベツのレンジ蒸し",
     captionRaw: `${SAMPLE_NOTE}\n豚こまとキャベツだけ。レンジ5分で夜ごはん完成。\n【材料】豚こま切れ肉 200g / キャベツ 1/4玉 / ポン酢\n耐熱皿に重ねてレンジ600Wで5分。ポン酢をかけるだけ。\n#時短レシピ #レンジレシピ`,
@@ -40,6 +41,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r002",
+    thumbnailUrl: "/images/thumbs/DWbFRQFCbbz.jpg",
     source: "manual",
     title: "【サンプル】豚バラなすの甘辛炒め",
     captionRaw: `${SAMPLE_NOTE}\nとろとろなすと豚バラの甘辛。ごはんが消えるやつ。\n【材料】豚バラ薄切り 150g / なす 2本 / 醤油・みりん・砂糖\nなすを先に焼いてから豚バラを重ねて甘辛だれ。\n#がっつり #夜ごはん`,
@@ -55,6 +57,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r003",
+    thumbnailUrl: "/images/thumbs/DVvQnm4iSdd.jpg",
     source: "manual",
     title: "【サンプル】豚ひき肉と豆腐のそぼろ丼",
     captionRaw: `${SAMPLE_NOTE}\n豆腐でかさまし。豚ひき肉のそぼろ丼で節約テック。\n【材料】豚ひき肉 150g / 木綿豆腐 1丁 / 卵黄 / 麺つゆ\nひき肉と崩した豆腐を炒めて麺つゆで味付け。ごはんにのせて卵黄。\n#節約レシピ #丼`,
@@ -70,6 +73,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r004",
+    thumbnailUrl: "/images/thumbs/DaC4yE9pp7c.jpg",
     source: "manual",
     title: "【サンプル】鶏むねのしっとりレンジ蒸し鶏",
     captionRaw: `${SAMPLE_NOTE}\nパサつかない蒸し鶏。作り置きにも。\n【材料】鶏むね肉 1枚 / 酒 / 塩 / ねぎだれ\nフォークで穴をあけて酒と塩、レンジ600Wで4分+余熱。\n#作り置き #ヘルシー`,
@@ -85,6 +89,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r005",
+    thumbnailUrl: "/images/thumbs/DZwvwrzJcfA.jpg",
     source: "manual",
     title: "【サンプル】丸ごとトマトの冷やしだしサラダ",
     captionRaw: `${SAMPLE_NOTE}\n夏の疲れた夜に。火を使わない冷たい一品。\n【材料】トマト 2個 / 白だし / 大葉\n湯むきしただしに漬けて冷やすだけ。\n#さっぱり #火を使わない`,
@@ -99,6 +104,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r006",
+    thumbnailUrl: "/images/thumbs/DZlqhGCJdIq.jpg",
     source: "manual",
     title: "【サンプル】チーズタッカルビ風フライパン鶏",
     captionRaw: `${SAMPLE_NOTE}\nフライパンひとつでチーズとろとろ。週末のごちそう。\n【材料】鶏もも肉 300g / コチュジャン / ピザ用チーズ 100g / キャベツ\n甘辛だれで炒めて真ん中にチーズ。\n#チーズ #週末ごはん`,
@@ -114,6 +120,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r007",
+    thumbnailUrl: "/images/thumbs/DZhaigEps2P.jpg",
     source: "manual",
     title: "【サンプル】ふわとろ天津飯(レンジあん)",
     captionRaw: `${SAMPLE_NOTE}\n卵2個とごはんで10分。あんはレンジで作る。\n【材料】卵 2個 / ごはん / カニカマ / 鶏ガラ / 酢・醤油・砂糖・片栗粉\n#卵レシピ #10分ごはん`,
@@ -129,6 +136,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r008",
+    thumbnailUrl: "/images/thumbs/DZXGhHsJlnN.jpg",
     source: "manual",
     title: "【サンプル】無限もやしナムル",
     captionRaw: `${SAMPLE_NOTE}\n1袋30円のもやしが無限に食べられる副菜に。\n【材料】もやし 1袋 / ごま油 / 鶏ガラ / にんにく\nレンジ2分で和えるだけ。作り置きOK。\n#副菜 #節約`,
@@ -143,6 +151,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r009",
+    thumbnailUrl: "/images/thumbs/DZHqDB5pmHB.jpg",
     source: "manual",
     title: "【サンプル】豚バラ大根のこってり煮",
     captionRaw: `${SAMPLE_NOTE}\n味しみ大根と豚バラ。煮るだけで週末の主役。\n【材料】豚バラブロック 300g / 大根 1/2本 / 醤油・みりん・砂糖・生姜\n#煮物 #週末ごはん`,
@@ -157,6 +166,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r010",
+    thumbnailUrl: "/images/thumbs/DY9P5Alpqo0.jpg",
     source: "manual",
     title: "【サンプル】ツナ缶で冷や汁風ぶっかけごはん",
     captionRaw: `${SAMPLE_NOTE}\n火を使わず3分。夏バテの夜のための一杯。\n【材料】ツナ缶 1缶 / きゅうり / みそ / 冷水 / ごはん\n#冷や汁 #夏レシピ`,
@@ -171,6 +181,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r011",
+    thumbnailUrl: "/images/thumbs/DY1iPT2J5Jy.jpg",
     source: "manual",
     title: "【サンプル】鶏ももとじゃがいものガリバタ醤油",
     captionRaw: `${SAMPLE_NOTE}\nガーリックバター醤油は正義。じゃがいもホクホク。\n【材料】鶏もも肉 250g / じゃがいも 2個 / バター / にんにく / 醤油\n#がっつり #ビールに合う`,
@@ -186,6 +197,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r012",
+    thumbnailUrl: "/images/thumbs/DYtKz23plSK.jpg",
     source: "manual",
     title: "【サンプル】レンジで一発ミートソースパスタ",
     captionRaw: `${SAMPLE_NOTE}\n耐熱容器ひとつ。パスタも一緒にレンジで煮る。\n【材料】パスタ 100g / 合いびき肉 100g / トマト缶 1/2 / コンソメ\n#ワンパン #レンジパスタ`,
@@ -201,6 +213,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r013",
+    thumbnailUrl: "/images/thumbs/DYotVJSJMJl.jpg",
     source: "manual",
     title: "【サンプル】豆腐とわかめのうま塩スープ",
     captionRaw: `${SAMPLE_NOTE}\nあと一品に3分スープ。体にやさしい塩味。\n【材料】豆腐 1/2丁 / わかめ / 鶏ガラ / ごま油\n#スープ #あと一品`,
@@ -215,6 +228,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r014",
+    thumbnailUrl: "/images/thumbs/DYg7aKmJHmW.jpg",
     source: "manual",
     title: "【サンプル】厚揚げのねぎチーズ焼き",
     captionRaw: `${SAMPLE_NOTE}\nトースターで放置5分。おつまみにも夜ごはんにも。\n【材料】厚揚げ 1枚 / ピザ用チーズ / ねぎ / 醤油\n#おつまみ #トースター`,
@@ -229,6 +243,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r015",
+    thumbnailUrl: "/images/thumbs/DYUDf_ipn4A.jpg",
     source: "manual",
     title: "【サンプル】鮭ときのこのバター醤油ホイル焼き",
     captionRaw: `${SAMPLE_NOTE}\n包んで焼くだけ。洗い物はホイルごとさよなら。\n【材料】生鮭 2切れ / しめじ / バター / 醤油\n#ホイル焼き #魚レシピ`,
@@ -243,6 +258,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r016",
+    thumbnailUrl: "/images/thumbs/DYHLM5OJQxc.jpg",
     source: "manual",
     title: "【サンプル】キャベツと卵のお好み焼き風",
     captionRaw: `${SAMPLE_NOTE}\n粉少なめキャベツもりもり。ソースマヨで子どもが喜ぶ。\n【材料】キャベツ 1/4玉 / 卵 2個 / 小麦粉 / 豚こま\n#お好み焼き #キャベツ消費`,
@@ -257,6 +273,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r017",
+    thumbnailUrl: "/images/thumbs/DYEpYrdJ3xQ.jpg",
     source: "manual",
     title: "【サンプル】レンジだけ麻婆豆腐",
     captionRaw: `${SAMPLE_NOTE}\n火を使わない麻婆豆腐。辛さは調整できる。\n【材料】豆腐 1丁 / 豚ひき肉 100g / 豆板醤 / 甜麺醤 / 片栗粉\n#麻婆豆腐 #レンジ`,
@@ -272,6 +289,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r018",
+    thumbnailUrl: "/images/thumbs/DYCEB5FpCYk.jpg",
     source: "manual",
     title: "【サンプル】玉ねぎ丸ごとコンソメスープ",
     captionRaw: `${SAMPLE_NOTE}\n新玉ねぎをレンジで丸ごととろとろに。\n【材料】玉ねぎ 1個 / コンソメ / バター / 黒こしょう\n#新玉ねぎ #スープ`,
@@ -286,6 +304,7 @@ export const seedRecipes: SeedRecipe[] = [
   },
   {
     id: "r019",
+    thumbnailUrl: "/images/thumbs/DX6TeVAJy5z.jpg",
     source: "manual",
     title: "【サンプル】豚こまチーズのカリカリ焼き",
     captionRaw: `${SAMPLE_NOTE}\n豚こまを広げてチーズを挟んで焼くだけ。カリカリ。\n【材料】豚こま切れ肉 200g / ピザ用チーズ / 片栗粉\n#おつまみ #豚こま`,
