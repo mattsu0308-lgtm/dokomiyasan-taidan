@@ -1,11 +1,14 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { getDataProvider } from "@/lib/data";
-import type { RecipeSort } from "@/lib/data/types";
-import { RecipeCard, RecipeGrid } from "@/components/RecipeCard";
+import { RecipeCard } from "@/components/RecipeCard";
+import { HomeRecipeList } from "./HomeRecipeList";
 
 /**
  * 曜日ごとのおすすめテーマ(ルールベース、AI不使用)。
  * 平日は手数の少ないもの、週末は少し余裕のあるものに寄せる。
+ * 静的エクスポートのため曜日判定はビルド時。おすすめ枠はタグ #{tag} を
+ * 「すべて見る」導線で補い、ビルド時点のテーマ8件を並べる。
  */
 const DAY_THEMES: { label: string; tag: string }[] = [
   { label: "日曜日は、作り置きの日", tag: "作り置き" },
@@ -17,20 +20,13 @@ const DAY_THEMES: { label: string; tag: string }[] = [
   { label: "土曜日は、ちょっとごちそう", tag: "週末ごちそう" },
 ];
 
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ sort?: string }>;
-}) {
-  const { sort: sortParam } = await searchParams;
-  const sort: RecipeSort = sortParam === "newest" ? "newest" : "recommended";
-
+export default async function HomePage() {
   const provider = getDataProvider();
   const theme = DAY_THEMES[new Date().getDay()];
   const [todayRecipes, collections, allRecipes] = await Promise.all([
     provider.listRecipes({ tags: [theme.tag], sort: "recommended", limit: 8 }),
     provider.listCollections(),
-    provider.listRecipes({ sort }),
+    provider.listRecipes({ sort: "recommended" }),
   ]);
 
   return (
@@ -87,35 +83,10 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* 全レシピ */}
-      <section>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-base font-bold">レシピ一覧</h2>
-          <div className="flex gap-1.5 text-[12px]">
-            <Link
-              href="/"
-              className={`rounded-full px-3 py-1 ${
-                sort === "recommended"
-                  ? "bg-primary font-bold text-white"
-                  : "bg-cream-deep text-ink-soft"
-              }`}
-            >
-              おすすめ順
-            </Link>
-            <Link
-              href="/?sort=newest"
-              className={`rounded-full px-3 py-1 ${
-                sort === "newest"
-                  ? "bg-primary font-bold text-white"
-                  : "bg-cream-deep text-ink-soft"
-              }`}
-            >
-              新着順
-            </Link>
-          </div>
-        </div>
-        <RecipeGrid recipes={allRecipes} />
-      </section>
+      {/* 全レシピ(並び替えはクライアント) */}
+      <Suspense>
+        <HomeRecipeList allRecipes={allRecipes} />
+      </Suspense>
     </main>
   );
 }

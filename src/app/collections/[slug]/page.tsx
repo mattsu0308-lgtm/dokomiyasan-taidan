@@ -4,6 +4,12 @@ import type { Metadata } from "next";
 import { getDataProvider } from "@/lib/data";
 import { RecipeGrid } from "@/components/RecipeCard";
 
+// 静的エクスポート: 全まとめ slug をビルド時に列挙して静的生成する
+export async function generateStaticParams() {
+  const collections = await getDataProvider().listCollections();
+  return collections.map((c) => ({ slug: c.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {

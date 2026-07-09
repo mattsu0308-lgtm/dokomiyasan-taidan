@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+// 静的エクスポート(output: export)で manifest を書き出すために必要
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "まっちのレシピ図鑑",

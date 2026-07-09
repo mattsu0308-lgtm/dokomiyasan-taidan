@@ -6,6 +6,12 @@ import { getRecipeImageUrl } from "@/lib/design/assets";
 import { RecipeThumb } from "@/components/RecipeThumb";
 import { RecipeGrid } from "@/components/RecipeCard";
 
+// 静的エクスポート: 全レシピIDをビルド時に列挙して静的生成する
+export async function generateStaticParams() {
+  const recipes = await getDataProvider().listRecipes();
+  return recipes.map((r) => ({ id: r.id }));
+}
+
 export async function generateMetadata({
   params,
 }: {

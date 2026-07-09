@@ -12,6 +12,7 @@ import type {
   RecipeViewModel,
   SeedRecipe,
 } from "./types";
+import { filterAndSortRecipes } from "./filter";
 
 /**
  * ローカル seed データを使う DataProvider 実装(MVP v0.1)。
@@ -38,44 +39,10 @@ function toViewModel(r: SeedRecipe): RecipeViewModel {
   };
 }
 
-function searchText(r: SeedRecipe): string {
-  return [r.title, r.captionRaw, ...r.ingredientTags, ...r.moodTags, r.cuisine ?? ""]
-    .join(" ")
-    .toLowerCase();
-}
-
-function matchesKeyword(r: SeedRecipe, keyword: string): boolean {
-  const kw = keyword.trim().toLowerCase();
-  if (!kw) return true;
-  // 空白区切りは AND 検索
-  return kw.split(/[\s　]+/).every((part) => searchText(r).includes(part));
-}
-
-function matchesTags(r: SeedRecipe, tags: string[]): boolean {
-  const own = new Set([...r.ingredientTags, ...r.moodTags]);
-  return tags.every((t) => own.has(t));
-}
-
-function sortRecipes(list: SeedRecipe[], sort: RecipeQuery["sort"]): SeedRecipe[] {
-  const byNewest = (a: SeedRecipe, b: SeedRecipe) =>
-    b.postedAt.localeCompare(a.postedAt);
-  if (sort === "newest") return [...list].sort(byNewest);
-  // recommended: manual_score 降順 → 新着順(view_count が将来入ればここに追加)
-  return [...list].sort(
-    (a, b) => (b.manualScore ?? 0) - (a.manualScore ?? 0) || byNewest(a, b),
-  );
-}
-
 export const seedProvider: DataProvider = {
   async listRecipes(query: RecipeQuery = {}): Promise<RecipeViewModel[]> {
-    let list = seedRecipes.filter((r) => {
-      if (query.keyword && !matchesKeyword(r, query.keyword)) return false;
-      if (query.tags?.length && !matchesTags(r, query.tags)) return false;
-      return true;
-    });
-    list = sortRecipes(list, query.sort ?? "recommended");
-    if (query.limit) list = list.slice(0, query.limit);
-    return list.map(toViewModel);
+    // フィルタ・並び替えは filter.ts に集約(クライアント検索と同一ロジック)
+    return filterAndSortRecipes(seedRecipes.map(toViewModel), query);
   },
 
   async getRecipe(id: string): Promise<RecipeViewModel | null> {
