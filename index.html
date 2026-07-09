@@ -15,9 +15,20 @@
 
   <main>
     <!-- 設定未完了の案内 -->
+    <!-- モード選択 -->
+    <section class="card" id="landingSection" hidden>
+      <h2 class="section-title">使い方を選ぶ</h2>
+      <button class="btn btn-in mode-btn" id="btnModeLocal">この端末だけで使う</button>
+      <p class="muted-text mode-desc">ログイン不要。データはこの端末のブラウザに保存されます。手軽ですぐ使えますが、他の端末とは共有されません。</p>
+      <button class="btn btn-csv mode-btn" id="btnModeCloud">ログインしてクラウド同期</button>
+      <p class="muted-text mode-desc">メールでログインすると、スマホ・PCなど複数端末で同じ記録を使えます（Supabase の設定が必要）。</p>
+    </section>
+
+    <!-- 設定未完了の案内 -->
     <section class="card" id="configNotice" hidden>
       <h2 class="section-title">セットアップが必要です</h2>
-      <p>クラウド同期を使うには <code>config.js</code> に Supabase の URL とキーを設定してください。手順は <code>README.md</code> を参照してください。</p>
+      <p class="muted-text">クラウド同期を使うには <code>config.js</code> に Supabase の URL とキーを設定してください。手順は <code>README.md</code> を参照してください。</p>
+      <button class="btn-text" id="btnConfigBack">← モード選択に戻る</button>
     </section>
 
     <!-- ログイン -->
@@ -30,13 +41,17 @@
       </label>
       <button class="btn btn-csv" id="btnSendLink">ログインリンクを送る</button>
       <p class="login-msg" id="loginMsg"></p>
+      <button class="btn-text" id="btnLoginBack">← モード選択に戻る</button>
     </section>
 
-    <!-- アプリ本体（ログイン後） -->
+    <!-- アプリ本体 -->
     <div id="appMain" hidden>
       <div class="account-bar">
         <span class="account-email" id="accountEmail"></span>
-        <button class="btn-text" id="btnSignOut">ログアウト</button>
+        <span class="account-actions">
+          <button class="btn-text" id="btnSignOut" hidden>ログアウト</button>
+          <button class="btn-text" id="btnSwitchMode">モード変更</button>
+        </span>
       </div>
 
       <!-- 打刻セクション -->
@@ -124,7 +139,7 @@
   </div>
 
   <footer class="app-footer">
-    <p>データはクラウド（Supabase）に保存され、ログインすればどの端末からでも同じ記録を見られます。</p>
+    <p>「この端末だけ」と「クラウド同期」を選べます。モードはいつでも変更できます。</p>
   </footer>
 
   <script src="config.js"></script>
