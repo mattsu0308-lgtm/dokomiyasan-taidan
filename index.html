@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2563eb">
+  <title>勤怠アプリ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>勤怠アプリ</h1>
+    <p class="today-label" id="todayLabel"></p>
+  </header>
+
+  <main>
+    <!-- 打刻セクション -->
+    <section class="card punch-card">
+      <div class="status" id="todayStatus">
+        <div class="status-row">
+          <span class="status-key">出勤</span>
+          <span class="status-val" id="statusIn">—</span>
+        </div>
+        <div class="status-row">
+          <span class="status-key">退勤</span>
+          <span class="status-val" id="statusOut">—</span>
+        </div>
+        <div class="status-row total">
+          <span class="status-key">稼働</span>
+          <span class="status-val" id="statusDuration">—</span>
+        </div>
+      </div>
+      <div class="punch-buttons">
+        <button class="btn btn-in" id="btnClockIn">出勤</button>
+        <button class="btn btn-out" id="btnClockOut">退勤</button>
+      </div>
+    </section>
+
+    <!-- 月次一覧セクション -->
+    <section class="card">
+      <div class="month-bar">
+        <button class="btn-nav" id="btnPrevMonth" aria-label="前の月">‹</button>
+        <h2 class="month-title" id="monthTitle"></h2>
+        <button class="btn-nav" id="btnNextMonth" aria-label="次の月">›</button>
+      </div>
+
+      <div class="month-summary" id="monthSummary"></div>
+
+      <div class="table-wrap">
+        <table class="records-table">
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>曜</th>
+              <th>出勤</th>
+              <th>退勤</th>
+              <th>稼働</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+      </div>
+
+      <div class="export-bar">
+        <button class="btn btn-csv" id="btnExportCsv">CSVダウンロード</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 手修正用モーダル -->
+  <div class="modal-overlay" id="editModal" hidden>
+    <div class="modal">
+      <h3 id="editModalTitle">打刻の修正</h3>
+      <label class="field">
+        <span>出勤</span>
+        <input type="time" id="editIn">
+      </label>
+      <label class="field">
+        <span>退勤</span>
+        <input type="time" id="editOut">
+      </label>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="btnEditCancel">キャンセル</button>
+        <button class="btn btn-danger-ghost" id="btnEditDelete">削除</button>
+        <button class="btn btn-in" id="btnEditSave">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>データはこの端末のブラウザ内にのみ保存されます。</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
