@@ -1,33 +1,38 @@
 "use strict";
 
 /* ============================================================
-   勤怠アプリ  ─ 出勤・退勤の打刻／月次一覧／CSV出力
-   データは localStorage にのみ保存（キー: kintai_records）
-   record: { date: "YYYY-MM-DD", clockIn: "HH:MM"|null, clockOut: "HH:MM"|null }
+   勤怠アプリ（クラウド同期版）
+   - Supabase Auth（メールのマジックリンク）でログイン
+   - 勤怠データは Supabase の attendance テーブルに保存
+   - ログインすればどの端末でも同じ記録を表示
+   attendance 行: { work_date: "YYYY-MM-DD", clock_in: "HH:MM"|null, clock_out: "HH:MM"|null }
    ============================================================ */
 
-const STORAGE_KEY = "kintai_records";
 const DOW = ["日", "月", "火", "水", "木", "金", "土"];
 
-// 表示中の月（1日を保持）。初期値は今月。
+let client = null; // Supabase client
+let currentUser = null; // ログイン中ユーザー
+let loadedUserId = null; // データ取得済みのユーザーID（重複取得防止）
+
+// メモリ上の記録キャッシュ（work_date -> record）。描画はここから同期的に行う。
+let recordsCache = {};
+
+// 表示中の月（0-11）
 let viewYear;
-let viewMonth; // 0-11
+let viewMonth;
 
 // 手修正モーダルの対象日付
 let editingDate = null;
 
-/* ---------- localStorage ---------- */
-function loadRecords() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  } catch (e) {
-    console.error("記録の読み込みに失敗しました", e);
-    return {};
-  }
-}
-
-function saveRecords(records) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+/* ---------- 設定 ---------- */
+function isConfigured() {
+  const c = window.APP_CONFIG || {};
+  return (
+    !!c.SUPABASE_URL &&
+    !!c.SUPABASE_ANON_KEY &&
+    !c.SUPABASE_URL.includes("YOUR_") &&
+    !c.SUPABASE_ANON_KEY.includes("YOUR_")
+  );
 }
 
 /* ---------- 日付ユーティリティ ---------- */
@@ -49,7 +54,6 @@ function nowHM() {
 }
 
 /* ---------- 稼働時間計算 ---------- */
-// "HH:MM" -> 分。無効なら null
 function hmToMinutes(hm) {
   if (!hm) return null;
   const [h, m] = hm.split(":").map(Number);
@@ -57,17 +61,15 @@ function hmToMinutes(hm) {
   return h * 60 + m;
 }
 
-// 出勤・退勤から稼働分を計算。退勤が出勤より前（日跨ぎ）は+24h扱い。
 function workedMinutes(rec) {
   const inM = hmToMinutes(rec.clockIn);
   const outM = hmToMinutes(rec.clockOut);
   if (inM === null || outM === null) return null;
   let diff = outM - inM;
-  if (diff < 0) diff += 24 * 60;
+  if (diff < 0) diff += 24 * 60; // 日跨ぎ
   return diff;
 }
 
-// 分 -> "h:mm"
 function formatDuration(min) {
   if (min === null || min === undefined) return "—";
   const h = Math.floor(min / 60);
@@ -75,37 +77,94 @@ function formatDuration(min) {
   return `${h}:${pad2(m)}`;
 }
 
+/* ---------- Supabase データ操作 ---------- */
+async function fetchRecords() {
+  const { data, error } = await client
+    .from("attendance")
+    .select("work_date, clock_in, clock_out");
+  if (error) throw error;
+  recordsCache = {};
+  (data || []).forEach((r) => {
+    recordsCache[r.work_date] = {
+      date: r.work_date,
+      clockIn: r.clock_in,
+      clockOut: r.clock_out,
+    };
+  });
+}
+
+async function upsertRecord(key, rec) {
+  const row = {
+    user_id: currentUser.id,
+    work_date: key,
+    clock_in: rec.clockIn,
+    clock_out: rec.clockOut,
+    updated_at: new Date().toISOString(),
+  };
+  const { error } = await client
+    .from("attendance")
+    .upsert(row, { onConflict: "user_id,work_date" });
+  if (error) throw error;
+  recordsCache[key] = { date: key, clockIn: rec.clockIn, clockOut: rec.clockOut };
+}
+
+async function removeRecord(key) {
+  const { error } = await client
+    .from("attendance")
+    .delete()
+    .eq("work_date", key);
+  if (error) throw error;
+  delete recordsCache[key];
+}
+
 /* ---------- 打刻 ---------- */
-function handleClockIn() {
-  const records = loadRecords();
+function setBusy(busy) {
+  document.getElementById("btnClockIn").disabled = busy;
+  document.getElementById("btnClockOut").disabled = busy;
+}
+
+function setSyncMsg(text, isError) {
+  const el = document.getElementById("syncMsg");
+  el.textContent = text || "";
+  el.classList.toggle("error", !!isError);
+}
+
+async function handleClockIn() {
   const key = todayKey();
-  const rec = records[key] || { date: key, clockIn: null, clockOut: null };
+  const rec = recordsCache[key] || { clockIn: null, clockOut: null };
   if (rec.clockIn && !confirm("すでに出勤済みです。出勤時刻を上書きしますか？")) {
     return;
   }
-  rec.clockIn = nowHM();
-  records[key] = rec;
-  saveRecords(records);
-  renderAll();
+  await savePunch(key, { clockIn: nowHM(), clockOut: rec.clockOut || null });
 }
 
-function handleClockOut() {
-  const records = loadRecords();
+async function handleClockOut() {
   const key = todayKey();
-  const rec = records[key] || { date: key, clockIn: null, clockOut: null };
+  const rec = recordsCache[key] || { clockIn: null, clockOut: null };
   if (rec.clockOut && !confirm("すでに退勤済みです。退勤時刻を上書きしますか？")) {
     return;
   }
-  rec.clockOut = nowHM();
-  records[key] = rec;
-  saveRecords(records);
-  renderAll();
+  await savePunch(key, { clockIn: rec.clockIn || null, clockOut: nowHM() });
+}
+
+async function savePunch(key, rec) {
+  setBusy(true);
+  setSyncMsg("保存中…", false);
+  try {
+    await upsertRecord(key, rec);
+    setSyncMsg("保存しました", false);
+    renderAll();
+  } catch (e) {
+    console.error(e);
+    setSyncMsg("保存に失敗しました。ネット接続を確認してください。", true);
+  } finally {
+    setBusy(false);
+  }
 }
 
 /* ---------- 本日ステータス描画 ---------- */
 function renderToday() {
-  const records = loadRecords();
-  const rec = records[todayKey()] || {};
+  const rec = recordsCache[todayKey()] || {};
   document.getElementById("statusIn").textContent = rec.clockIn || "—";
   document.getElementById("statusOut").textContent = rec.clockOut || "—";
   document.getElementById("statusDuration").textContent = formatDuration(
@@ -119,9 +178,8 @@ function renderToday() {
 
 /* ---------- 月次一覧描画 ---------- */
 function renderMonth() {
-  const records = loadRecords();
-  const title = document.getElementById("monthTitle");
-  title.textContent = `${viewYear}年${viewMonth + 1}月`;
+  document.getElementById("monthTitle").textContent =
+    `${viewYear}年${viewMonth + 1}月`;
 
   const body = document.getElementById("recordsBody");
   body.innerHTML = "";
@@ -134,7 +192,7 @@ function renderMonth() {
   for (let day = 1; day <= daysInMonth; day++) {
     const d = new Date(viewYear, viewMonth, day);
     const key = dateKey(d);
-    const rec = records[key] || {};
+    const rec = recordsCache[key] || {};
     const dow = d.getDay();
     const min = workedMinutes(rec);
     if (min !== null) {
@@ -147,14 +205,11 @@ function renderMonth() {
     if (dow === 6) tr.classList.add("row-sat");
     if (dow === 0) tr.classList.add("row-sun");
 
-    const inTxt = rec.clockIn || "";
-    const outTxt = rec.clockOut || "";
-
     tr.innerHTML = `
       <td class="date-cell">${day}</td>
       <td><span class="dow">${DOW[dow]}</span></td>
-      <td>${inTxt || '<span class="empty-cell">—</span>'}</td>
-      <td>${outTxt || '<span class="empty-cell">—</span>'}</td>
+      <td>${rec.clockIn || '<span class="empty-cell">—</span>'}</td>
+      <td>${rec.clockOut || '<span class="empty-cell">—</span>'}</td>
       <td>${min !== null ? formatDuration(min) : '<span class="empty-cell">—</span>'}</td>
       <td><button class="edit-link" data-date="${key}">修正</button></td>
     `;
@@ -166,12 +221,26 @@ function renderMonth() {
     `<span>合計稼働 <strong>${formatDuration(totalMin)}</strong></span>`;
 }
 
+/* ---------- 月次一覧の開閉 ---------- */
+function toggleRecords() {
+  const btn = document.getElementById("btnToggleRecords");
+  const panel = document.getElementById("recordsPanel");
+  const label = btn.querySelector(".records-toggle-label");
+  const open = panel.hidden;
+
+  panel.hidden = !open;
+  btn.setAttribute("aria-expanded", String(open));
+  btn.classList.toggle("open", open);
+  label.textContent = open ? "記録を閉じる" : "記録を見る（月次一覧）";
+
+  if (open) renderMonth();
+}
+
 /* ---------- 手修正モーダル ---------- */
 function openEdit(key) {
   editingDate = key;
-  const records = loadRecords();
-  const rec = records[key] || {};
-  const [y, m, dd] = key.split("-").map(Number);
+  const rec = recordsCache[key] || {};
+  const [, m, dd] = key.split("-").map(Number);
   document.getElementById("editModalTitle").textContent =
     `${m}月${dd}日 の打刻を修正`;
   document.getElementById("editIn").value = rec.clockIn || "";
@@ -184,47 +253,48 @@ function closeEdit() {
   document.getElementById("editModal").hidden = true;
 }
 
-function saveEdit() {
+async function saveEdit() {
   if (!editingDate) return;
-  const records = loadRecords();
+  const key = editingDate;
   const inVal = document.getElementById("editIn").value || null;
   const outVal = document.getElementById("editOut").value || null;
-
-  if (!inVal && !outVal) {
-    // 両方空なら記録削除
-    delete records[editingDate];
-  } else {
-    records[editingDate] = {
-      date: editingDate,
-      clockIn: inVal,
-      clockOut: outVal,
-    };
+  try {
+    if (!inVal && !outVal) {
+      await removeRecord(key); // 両方空なら削除
+    } else {
+      await upsertRecord(key, { clockIn: inVal, clockOut: outVal });
+    }
+    closeEdit();
+    renderAll();
+  } catch (e) {
+    console.error(e);
+    alert("保存に失敗しました。ネット接続を確認してください。");
   }
-  saveRecords(records);
-  closeEdit();
-  renderAll();
 }
 
-function deleteEdit() {
+async function deleteEdit() {
   if (!editingDate) return;
   if (!confirm("この日の打刻を削除しますか？")) return;
-  const records = loadRecords();
-  delete records[editingDate];
-  saveRecords(records);
-  closeEdit();
-  renderAll();
+  const key = editingDate;
+  try {
+    await removeRecord(key);
+    closeEdit();
+    renderAll();
+  } catch (e) {
+    console.error(e);
+    alert("削除に失敗しました。ネット接続を確認してください。");
+  }
 }
 
 /* ---------- CSV出力 ---------- */
 function exportCsv() {
-  const records = loadRecords();
   const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
   const rows = [["日付", "曜日", "出勤", "退勤", "稼働時間"]];
 
   for (let day = 1; day <= daysInMonth; day++) {
     const d = new Date(viewYear, viewMonth, day);
     const key = dateKey(d);
-    const rec = records[key] || {};
+    const rec = recordsCache[key] || {};
     const min = workedMinutes(rec);
     rows.push([
       key,
@@ -239,7 +309,6 @@ function exportCsv() {
     .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
     .join("\r\n");
 
-  // BOM付きでExcelの文字化けを防ぐ
   const blob = new Blob(["﻿" + csv], {
     type: "text/csv;charset=utf-8;",
   });
@@ -266,37 +335,84 @@ function shiftMonth(delta) {
   renderMonth();
 }
 
-/* ---------- 月次一覧の開閉 ---------- */
-function toggleRecords() {
-  const btn = document.getElementById("btnToggleRecords");
-  const panel = document.getElementById("recordsPanel");
-  const label = btn.querySelector(".records-toggle-label");
-  const open = panel.hidden; // 今から開くか
-
-  panel.hidden = !open;
-  btn.setAttribute("aria-expanded", String(open));
-  btn.classList.toggle("open", open);
-  label.textContent = open ? "記録を閉じる" : "記録を見る（月次一覧）";
-
-  if (open) renderMonth();
-}
-
 /* ---------- 全体描画 ---------- */
 function renderAll() {
   renderToday();
-  renderMonth();
+  if (!document.getElementById("recordsPanel").hidden) renderMonth();
+}
+
+/* ---------- 画面切り替え ---------- */
+function showView(view) {
+  document.getElementById("configNotice").hidden = view !== "config";
+  document.getElementById("loginSection").hidden = view !== "login";
+  document.getElementById("appMain").hidden = view !== "app";
+}
+
+/* ---------- 認証 ---------- */
+function setLoginMsg(text, isError) {
+  const el = document.getElementById("loginMsg");
+  el.textContent = text || "";
+  el.classList.toggle("error", !!isError);
+}
+
+async function sendLoginLink() {
+  const email = document.getElementById("loginEmail").value.trim();
+  if (!email) {
+    setLoginMsg("メールアドレスを入力してください。", true);
+    return;
+  }
+  const btn = document.getElementById("btnSendLink");
+  btn.disabled = true;
+  setLoginMsg("送信中…", false);
+  try {
+    const { error } = await client.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: window.location.href.split("#")[0] },
+    });
+    if (error) throw error;
+    setLoginMsg(
+      `${email} にログインリンクを送りました。メールを開いてリンクを押してください。`,
+      false
+    );
+  } catch (e) {
+    console.error(e);
+    setLoginMsg("送信に失敗しました: " + (e.message || e), true);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function signOut() {
+  await client.auth.signOut();
+}
+
+async function handleAuth(session) {
+  if (session && session.user) {
+    currentUser = session.user;
+    document.getElementById("accountEmail").textContent = currentUser.email || "";
+    showView("app");
+    if (loadedUserId !== currentUser.id) {
+      loadedUserId = currentUser.id;
+      try {
+        await fetchRecords();
+      } catch (e) {
+        console.error(e);
+        setSyncMsg("記録の取得に失敗しました。再読み込みしてください。", true);
+      }
+      renderAll();
+    }
+  } else {
+    currentUser = null;
+    loadedUserId = null;
+    recordsCache = {};
+    showView("login");
+  }
 }
 
 /* ---------- 初期化 ---------- */
-function init() {
-  const now = new Date();
-  viewYear = now.getFullYear();
-  viewMonth = now.getMonth();
-
+function wireEvents() {
   document.getElementById("btnClockIn").addEventListener("click", handleClockIn);
-  document
-    .getElementById("btnClockOut")
-    .addEventListener("click", handleClockOut);
+  document.getElementById("btnClockOut").addEventListener("click", handleClockOut);
   document
     .getElementById("btnPrevMonth")
     .addEventListener("click", () => shiftMonth(-1));
@@ -304,31 +420,64 @@ function init() {
     .getElementById("btnNextMonth")
     .addEventListener("click", () => shiftMonth(1));
   document.getElementById("btnExportCsv").addEventListener("click", exportCsv);
-
-  // 月次一覧の表示/非表示トグル（初期は非表示）
   document
     .getElementById("btnToggleRecords")
     .addEventListener("click", toggleRecords);
 
   // モーダル
-  document
-    .getElementById("btnEditCancel")
-    .addEventListener("click", closeEdit);
+  document.getElementById("btnEditCancel").addEventListener("click", closeEdit);
   document.getElementById("btnEditSave").addEventListener("click", saveEdit);
-  document
-    .getElementById("btnEditDelete")
-    .addEventListener("click", deleteEdit);
+  document.getElementById("btnEditDelete").addEventListener("click", deleteEdit);
   document.getElementById("editModal").addEventListener("click", (e) => {
     if (e.target.id === "editModal") closeEdit();
   });
-
-  // 一覧の「修正」ボタン（イベント委任）
   document.getElementById("recordsBody").addEventListener("click", (e) => {
     const btn = e.target.closest(".edit-link");
     if (btn) openEdit(btn.dataset.date);
   });
 
-  renderAll();
+  // 認証
+  document.getElementById("btnSendLink").addEventListener("click", sendLoginLink);
+  document.getElementById("loginEmail").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendLoginLink();
+  });
+  document.getElementById("btnSignOut").addEventListener("click", signOut);
+}
+
+async function init() {
+  const now = new Date();
+  viewYear = now.getFullYear();
+  viewMonth = now.getMonth();
+
+  wireEvents();
+
+  // 今日の日付ラベルはログイン前でも出しておく
+  renderToday();
+
+  if (!isConfigured()) {
+    showView("config");
+    return;
+  }
+  if (!window.supabase || !window.supabase.createClient) {
+    showView("login");
+    setLoginMsg(
+      "オンラインライブラリの読み込みに失敗しました。ネット接続を確認して再読み込みしてください。",
+      true
+    );
+    return;
+  }
+
+  client = window.supabase.createClient(
+    window.APP_CONFIG.SUPABASE_URL,
+    window.APP_CONFIG.SUPABASE_ANON_KEY
+  );
+
+  client.auth.onAuthStateChange((_event, session) => {
+    handleAuth(session);
+  });
+
+  const { data } = await client.auth.getSession();
+  await handleAuth(data.session);
 }
 
 document.addEventListener("DOMContentLoaded", init);

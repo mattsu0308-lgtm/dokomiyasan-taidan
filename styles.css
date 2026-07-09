@@ -138,6 +138,89 @@ main {
   color: var(--danger);
 }
 
+/* ---- ログイン / アカウント ---- */
+.section-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 12px;
+}
+
+.field-block {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.field-block span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.field-block input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.login-msg,
+.sync-msg {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 1.2em;
+}
+
+.login-msg.error,
+.sync-msg.error {
+  color: var(--danger);
+}
+
+.sync-msg {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.account-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 12px;
+  gap: 8px;
+}
+
+.account-email {
+  color: var(--muted);
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-text {
+  border: none;
+  background: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  flex-shrink: 0;
+}
+
+code {
+  background: #f1f5f9;
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.85em;
+}
+
 /* ---- 記録トグル ---- */
 .records-toggle {
   width: 100%;
