@@ -20,6 +20,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r001.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -40,6 +41,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r002.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -61,6 +63,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r003.jpg",
     "cuisine": "韓",
     "difficulty": "ふつう"
   },
@@ -81,6 +84,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r004.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -100,6 +104,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r005.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -117,6 +122,7 @@ export const realRecipes: SeedRecipe[] = [
       "節約"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r006.jpg",
     "cuisine": "その他",
     "difficulty": "かんたん"
   },
@@ -137,6 +143,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r007.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -157,6 +164,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r008.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -177,6 +185,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r009.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -198,6 +207,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r010.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -214,6 +224,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r011.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -232,6 +243,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r012.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -252,6 +264,7 @@ export const realRecipes: SeedRecipe[] = [
       "週末ごちそう"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r013.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -269,6 +282,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r014.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -289,6 +303,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r015.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -310,6 +325,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r016.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -329,6 +345,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r017.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -347,6 +364,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r018.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -366,6 +384,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r019.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -381,6 +400,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r020.jpg",
     "cuisine": "和",
     "difficulty": "かんたん"
   },
@@ -401,6 +421,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r021.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -421,6 +442,7 @@ export const realRecipes: SeedRecipe[] = [
       "作り置き"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r022.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -443,6 +465,7 @@ export const realRecipes: SeedRecipe[] = [
       "作り置き"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r023.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -466,6 +489,7 @@ export const realRecipes: SeedRecipe[] = [
       "ヘルシー"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r024.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -485,6 +509,7 @@ export const realRecipes: SeedRecipe[] = [
       "ヘルシー"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r025.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -506,6 +531,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r026.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -524,6 +550,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r027.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -543,6 +570,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r028.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -563,6 +591,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r029.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -584,6 +613,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "rice-bowl",
+    "thumbnailUrl": "/images/thumbs/r030.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -605,6 +635,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r031.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -622,6 +653,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r032.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -643,6 +675,7 @@ export const realRecipes: SeedRecipe[] = [
       "ヘルシー"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r033.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -659,6 +692,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r034.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -678,6 +712,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r035.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -698,6 +733,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r036.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -717,6 +753,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r037.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -739,6 +776,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r038.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -759,6 +797,7 @@ export const realRecipes: SeedRecipe[] = [
       "ヘルシー"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r039.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -777,6 +816,7 @@ export const realRecipes: SeedRecipe[] = [
       "おつまみ"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r040.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -797,6 +837,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r041.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -817,6 +858,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r042.jpg",
     "cuisine": "洋",
     "difficulty": "かんたん"
   },
@@ -838,6 +880,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r043.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -858,6 +901,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r044.jpg",
     "cuisine": "和",
     "difficulty": "かんたん"
   },
@@ -877,6 +921,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r045.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -899,6 +944,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r046.jpg",
     "cuisine": "洋",
     "difficulty": "かんたん"
   },
@@ -920,6 +966,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r047.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -940,6 +987,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r048.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -960,6 +1008,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r049.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -976,6 +1025,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r050.jpg",
     "cuisine": "和",
     "difficulty": "かんたん"
   },
@@ -996,6 +1046,7 @@ export const realRecipes: SeedRecipe[] = [
       "節約"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r051.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1016,6 +1067,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r052.jpg",
     "cuisine": "洋",
     "difficulty": "かんたん"
   },
@@ -1036,6 +1088,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r053.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1058,6 +1111,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r054.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1078,6 +1132,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r055.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1099,6 +1154,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r056.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1121,6 +1177,7 @@ export const realRecipes: SeedRecipe[] = [
       "ヘルシー"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r057.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1142,6 +1199,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r058.jpg",
     "cuisine": "洋",
     "difficulty": "かんたん"
   },
@@ -1162,6 +1220,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r059.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1181,6 +1240,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r060.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1200,6 +1260,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r061.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1218,6 +1279,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r062.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1236,6 +1298,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "egg",
+    "thumbnailUrl": "/images/thumbs/r063.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -1256,6 +1319,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "rice-bowl",
+    "thumbnailUrl": "/images/thumbs/r064.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1274,6 +1338,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r065.jpg",
     "cuisine": "和",
     "difficulty": "かんたん"
   },
@@ -1294,6 +1359,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r066.jpg",
     "cuisine": "洋",
     "difficulty": "かんたん"
   },
@@ -1313,6 +1379,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "rice-bowl",
+    "thumbnailUrl": "/images/thumbs/r067.jpg",
     "cuisine": "和",
     "difficulty": "かんたん"
   },
@@ -1333,6 +1400,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r068.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1351,6 +1419,7 @@ export const realRecipes: SeedRecipe[] = [
       "おつまみ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r069.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1371,6 +1440,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r070.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -1386,6 +1456,7 @@ export const realRecipes: SeedRecipe[] = [
       "週末ごちそう"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r071.jpg",
     "cuisine": "韓",
     "difficulty": "かんたん"
   },
@@ -1407,6 +1478,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r072.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1426,6 +1498,7 @@ export const realRecipes: SeedRecipe[] = [
       "さっぱり"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r073.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1447,6 +1520,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r075.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1467,6 +1541,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r076.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -1487,6 +1562,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r077.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1502,6 +1578,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r078.jpg",
     "cuisine": "その他",
     "difficulty": "かんたん"
   },
@@ -1520,6 +1597,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r079.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1535,6 +1613,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r080.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1554,6 +1633,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r081.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1574,6 +1654,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r082.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1595,6 +1676,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r083.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -1614,6 +1696,7 @@ export const realRecipes: SeedRecipe[] = [
       "さっぱり"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r084.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1636,6 +1719,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r085.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1656,6 +1740,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r088.jpg",
     "cuisine": "和",
     "difficulty": "かんたん"
   },
@@ -1676,6 +1761,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r089.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1695,6 +1781,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "rice-bowl",
+    "thumbnailUrl": "/images/thumbs/r090.jpg",
     "cuisine": "中",
     "difficulty": "かんたん",
     "timeMinutes": 5
@@ -1712,6 +1799,7 @@ export const realRecipes: SeedRecipe[] = [
       "週末ごちそう"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r091.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1729,6 +1817,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r094.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1750,6 +1839,7 @@ export const realRecipes: SeedRecipe[] = [
       "平日夜"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r095.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1771,6 +1861,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r096.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1792,6 +1883,7 @@ export const realRecipes: SeedRecipe[] = [
       "平日夜"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r097.jpg",
     "cuisine": "中",
     "difficulty": "ふつう",
     "timeMinutes": 15
@@ -1811,6 +1903,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r098.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1832,6 +1925,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r100.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1853,6 +1947,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r101.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1868,6 +1963,7 @@ export const realRecipes: SeedRecipe[] = [
       "平日夜"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r103.jpg",
     "cuisine": "洋",
     "difficulty": "かんたん"
   },
@@ -1890,6 +1986,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r105.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -1909,6 +2006,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r106.jpg",
     "cuisine": "洋",
     "difficulty": "かんたん"
   },
@@ -1930,6 +2028,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r107.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -1951,6 +2050,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r108.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -1972,6 +2072,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r109.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -1991,6 +2092,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "rice-bowl",
+    "thumbnailUrl": "/images/thumbs/r110.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2010,6 +2112,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "egg",
+    "thumbnailUrl": "/images/thumbs/r111.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2031,6 +2134,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r112.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2052,6 +2156,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r113.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2073,6 +2178,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r114.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2093,6 +2199,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r115.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2113,6 +2220,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r116.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2133,6 +2241,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r117.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2152,6 +2261,7 @@ export const realRecipes: SeedRecipe[] = [
       "平日夜"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r118.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2172,6 +2282,7 @@ export const realRecipes: SeedRecipe[] = [
       "節約"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r119.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2192,6 +2303,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r120.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2213,6 +2325,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "vegetable",
+    "thumbnailUrl": "/images/thumbs/r123.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2230,6 +2343,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r124.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2252,7 +2366,7 @@ export const realRecipes: SeedRecipe[] = [
       "平日夜"
     ],
     "placeholderCategory": "microwave",
-    "thumbnailUrl": "/images/thumbs/DVvQnm4iSdd.jpg",
+    "thumbnailUrl": "/images/thumbs/r125.jpg",
     "cuisine": "中",
     "difficulty": "ふつう",
     "timeMinutes": 10
@@ -2270,6 +2384,7 @@ export const realRecipes: SeedRecipe[] = [
     ],
     "moodTags": [],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r126.jpg",
     "cuisine": "エスニック",
     "difficulty": "ふつう"
   },
@@ -2290,6 +2405,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r127.jpg",
     "cuisine": "韓",
     "difficulty": "ふつう"
   },
@@ -2308,6 +2424,7 @@ export const realRecipes: SeedRecipe[] = [
       "平日夜"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r128.jpg",
     "cuisine": "和",
     "difficulty": "ふつう",
     "timeMinutes": 10
@@ -2330,6 +2447,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r129.jpg",
     "cuisine": "和",
     "difficulty": "ふつう",
     "timeMinutes": 10
@@ -2348,6 +2466,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "cheese",
+    "thumbnailUrl": "/images/thumbs/r131.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2368,6 +2487,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r133.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2386,6 +2506,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r134.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2402,6 +2523,7 @@ export const realRecipes: SeedRecipe[] = [
     ],
     "moodTags": [],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r135.jpg",
     "cuisine": "その他",
     "difficulty": "ふつう"
   },
@@ -2418,6 +2540,7 @@ export const realRecipes: SeedRecipe[] = [
     ],
     "moodTags": [],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r136.jpg",
     "cuisine": "韓",
     "difficulty": "ふつう"
   },
@@ -2439,7 +2562,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "default",
-    "thumbnailUrl": "/images/thumbs/DWbFRQFCbbz.jpg",
+    "thumbnailUrl": "/images/thumbs/r137.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2461,6 +2584,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r138.jpg",
     "cuisine": "中",
     "difficulty": "ふつう",
     "timeMinutes": 10
@@ -2482,6 +2606,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r139.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2503,6 +2628,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r140.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2519,6 +2645,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r141.jpg",
     "cuisine": "その他",
     "difficulty": "かんたん"
   },
@@ -2540,6 +2667,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r142.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2562,6 +2690,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r143.jpg",
     "cuisine": "その他",
     "difficulty": "ふつう"
   },
@@ -2583,6 +2712,7 @@ export const realRecipes: SeedRecipe[] = [
       "疲れた夜"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r144.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2604,6 +2734,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r146.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2622,6 +2753,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r147.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2642,6 +2774,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r148.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2662,29 +2795,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "pork",
-    "thumbnailUrl": "/images/thumbs/DX6TeVAJy5z.jpg",
-    "cuisine": "和",
-    "difficulty": "ふつう"
-  },
-  {
-    "id": "r150",
-    "source": "instagram",
-    "title": "バターが香るガリバタポーク",
-    "captionRaw": "@macchi_recipi ←\\疲れが吹き飛ぶ/\nバターが香る\nガリバタポーク\n\n【材料】　　\n・豚こまにく　　　　　　4～5枚\n・キャベツ　　　　　　　3枚\n・えのき　　　　　　　　1/2袋\n\n【調味料】\n◯しょうゆ　　　　　　　大1\n〇みりん　　　　　　　　大1\n〇酒　　　　　　　　　　大1\n〇にんにくチューブ　　　3cm\n・バター　　　　　　　　3cm\n\n≪作り方≫\n①耐熱容器にキャベツを食べやすいサイズにちぎって入れる\n②石づきをとったえのきと豚肉を乗せ、〇をかけふんわりラップをする\n③600wレンチン4分\n④バターを入れラップをしないでレンチン1分30秒\n⑤ご飯と一緒に食べれば元気100倍！\n\n今日もお疲れさまでした✨\n\n———————————\n最後まで見てくれてありがとうございます✨\n\nこのアカウントは\n妻と子供がハマる\n簡単レシピを\n発信しています！\nよかったらフォローして\n次の投稿もチェックしてね\n\n@macchi_recipi \n———————————\n\n#バターが香る　#ごはんがとまらん　#包丁使わない",
-    "permalink": "https://www.instagram.com/reel/DYCEB5FpCYk/",
-    "postedAt": "2026-05-07T18:23:14+09:00",
-    "ingredientTags": [
-      "豚肉",
-      "キャベツ",
-      "きのこ"
-    ],
-    "moodTags": [
-      "レンジ",
-      "疲れた夜",
-      "こってり"
-    ],
-    "placeholderCategory": "pork",
-    "thumbnailUrl": "/images/thumbs/DYCEB5FpCYk.jpg",
+    "thumbnailUrl": "/images/thumbs/r149.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2706,7 +2817,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "chicken",
-    "thumbnailUrl": "/images/thumbs/DYEpYrdJ3xQ.jpg",
+    "thumbnailUrl": "/images/thumbs/r151.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2727,7 +2838,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "pork",
-    "thumbnailUrl": "/images/thumbs/DYHLM5OJQxc.jpg",
+    "thumbnailUrl": "/images/thumbs/r152.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2749,7 +2860,30 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "default",
+    "thumbnailUrl": "/images/thumbs/r153.jpg",
     "cuisine": "中",
+    "difficulty": "ふつう"
+  },
+  {
+    "id": "r154",
+    "source": "instagram",
+    "title": "バターが香るガリバタポーク",
+    "captionRaw": "@macchi_recipi \n\\疲れが吹き飛ぶ/\nバターが香る\nガリバタポーク\n\nこれで妻の疲れが吹き飛んだ\n\n【材料】　　\n・豚こまにく　　　　　　4～5枚\n・キャベツ　　　　　　　3枚\n・えのき　　　　　　　　1/2袋\n\n【調味料】\n◯しょうゆ　　　　　　　大1\n〇みりん　　　　　　　　大1\n〇酒　　　　　　　　　　大1\n〇にんにくチューブ　　　3cm\n・バター　　　　　　　　3cm\n\n≪作り方≫\n①耐熱容器にキャベツを食べやすいサイズにちぎって入れる\n②石づきをとったえのきと豚肉を乗せ、〇をかけふんわりラップをする\n③600wレンチン4分\n④バターを入れラップをしないでレンチン1分30秒\n⑤ご飯と一緒に食べれば元気100倍！\n\n今日もお疲れさまでした✨\n\n———————————\n最後まで見てくれてありがとうございます✨\n\nこのアカウントは\n妻と子供がハマる\n簡単レシピを\n発信しています！\nよかったらフォローして\n次の投稿もチェックしてね\n\n@macchi_recipi \n———————————\n\n#バターが香る　#ごはんがとまらん　#包丁使わない",
+    "permalink": "https://www.instagram.com/macchi_recipi/",
+    "postedAt": "2026-05-12T17:26:28+09:00",
+    "ingredientTags": [
+      "豚肉",
+      "キャベツ",
+      "きのこ"
+    ],
+    "moodTags": [
+      "レンジ",
+      "疲れた夜",
+      "こってり"
+    ],
+    "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r154.jpg",
+    "cuisine": "和",
     "difficulty": "ふつう"
   },
   {
@@ -2770,7 +2904,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "default",
-    "thumbnailUrl": "/images/thumbs/DYUDf_ipn4A.jpg",
+    "thumbnailUrl": "/images/thumbs/r155.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2791,7 +2925,7 @@ export const realRecipes: SeedRecipe[] = [
       "ヘルシー"
     ],
     "placeholderCategory": "chicken",
-    "thumbnailUrl": "/images/thumbs/DYg7aKmJHmW.jpg",
+    "thumbnailUrl": "/images/thumbs/r156.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2812,6 +2946,7 @@ export const realRecipes: SeedRecipe[] = [
       "ヘルシー"
     ],
     "placeholderCategory": "pork",
+    "thumbnailUrl": "/images/thumbs/r158.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2833,6 +2968,7 @@ export const realRecipes: SeedRecipe[] = [
       "時短"
     ],
     "placeholderCategory": "microwave",
+    "thumbnailUrl": "/images/thumbs/r159.jpg",
     "cuisine": "和",
     "difficulty": "ふつう",
     "timeMinutes": 4
@@ -2853,6 +2989,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "chicken",
+    "thumbnailUrl": "/images/thumbs/r161.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2874,7 +3011,7 @@ export const realRecipes: SeedRecipe[] = [
       "がっつり"
     ],
     "placeholderCategory": "microwave",
-    "thumbnailUrl": "/images/thumbs/DY1iPT2J5Jy.jpg",
+    "thumbnailUrl": "/images/thumbs/r162.jpg",
     "cuisine": "中",
     "difficulty": "ふつう",
     "timeMinutes": 8
@@ -2896,7 +3033,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "vegetable",
-    "thumbnailUrl": "/images/thumbs/DY9P5Alpqo0.jpg",
+    "thumbnailUrl": "/images/thumbs/r163.jpg",
     "cuisine": "中",
     "difficulty": "ふつう"
   },
@@ -2918,7 +3055,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "pork",
-    "thumbnailUrl": "/images/thumbs/DZHqDB5pmHB.jpg",
+    "thumbnailUrl": "/images/thumbs/r165.jpg",
     "cuisine": "和",
     "difficulty": "ふつう"
   },
@@ -2940,7 +3077,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "chicken",
-    "thumbnailUrl": "/images/thumbs/DZXGhHsJlnN.jpg",
+    "thumbnailUrl": "/images/thumbs/r166.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   },
@@ -2956,7 +3093,7 @@ export const realRecipes: SeedRecipe[] = [
       "子どもウケ"
     ],
     "placeholderCategory": "default",
-    "thumbnailUrl": "/images/thumbs/DZhaigEps2P.jpg",
+    "thumbnailUrl": "/images/thumbs/r167.jpg",
     "cuisine": "エスニック",
     "difficulty": "ふつう",
     "timeMinutes": 30
@@ -2977,7 +3114,7 @@ export const realRecipes: SeedRecipe[] = [
       "レンジ"
     ],
     "placeholderCategory": "vegetable",
-    "thumbnailUrl": "/images/thumbs/DZwvwrzJcfA.jpg",
+    "thumbnailUrl": "/images/thumbs/r168.jpg",
     "cuisine": "その他",
     "difficulty": "ふつう"
   },
@@ -2998,7 +3135,7 @@ export const realRecipes: SeedRecipe[] = [
       "洗い物少ない"
     ],
     "placeholderCategory": "rice-bowl",
-    "thumbnailUrl": "/images/thumbs/DaC4yE9pp7c.jpg",
+    "thumbnailUrl": "/images/thumbs/r169.jpg",
     "cuisine": "洋",
     "difficulty": "ふつう"
   }
@@ -3010,7 +3147,7 @@ export const realCollections: SeedCollection[] = [
     "title": "疲れた夜に助かる8選",
     "description": "帰ってから考えたくない日のための、手数最小のレシピだけを集めました。",
     "recipeIds": [
-      "r150",
+      "r154",
       "r144",
       "r143",
       "r120",
@@ -3031,8 +3168,8 @@ export const realCollections: SeedCollection[] = [
       "r161",
       "r159",
       "r156",
-      "r153",
-      "r152"
+      "r154",
+      "r153"
     ]
   },
   {

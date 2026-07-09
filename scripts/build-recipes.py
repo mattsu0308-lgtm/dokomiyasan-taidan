@@ -44,15 +44,23 @@ csv_rows = {}
 for r in csv.DictReader(open(ROOT / "reels_cleaned.csv", encoding="utf-8-sig", newline="")):
     csv_rows[r["posted_at"]] = r
 
-# 4) サムネ突合(taken_at UTC epoch → JST)
-thumbs = json.loads((ROOT / "public/images/thumbs/thumbs-index.json").read_text(encoding="utf-8"))
+# 4a) サムネ: 公式エクスポート由来(extract-thumbs-from-export.py の出力)を全件参照
+thumbs_map = json.loads((ROOT / "public/images/thumbs/thumbs-map.json").read_text(encoding="utf-8"))
+
+# 4b) permalink: 2026-07-09以前に取得済みの15本の実リールコードのみ維持
+#    (taken_at UTC epoch → JST で突合。新規取得はしない。全件の正規取得はPhase Bの公式API同期で行う)
+PERMALINK_INDEX = ROOT / "scripts" / "permalink-index.json"
 def to_jst(epoch):
     return datetime.fromtimestamp(epoch, tz=timezone.utc).astimezone(JST).replace(tzinfo=None)
-thumb_list = [(to_jst(t["taken_at"]), t["code"]) for t in thumbs if t["code"] != "DZEUrDzpII9"]
+code_list = []
+if PERMALINK_INDEX.exists():
+    for t in json.loads(PERMALINK_INDEX.read_text(encoding="utf-8")):
+        if t["code"] != "DZEUrDzpII9":
+            code_list.append((to_jst(t["taken_at"]), t["code"]))
 
-def find_thumb(posted_at_str):
+def find_code(posted_at_str):
     dt = datetime.strptime(posted_at_str, "%Y-%m-%d %H:%M:%S")
-    for tdt, code in thumb_list:
+    for tdt, code in code_list:
         if abs((tdt - dt).total_seconds()) <= 300:
             return code
     return None
@@ -88,8 +96,9 @@ for row in inputs:
     ph = t.get("placeholderCategory") or "default"
     if ph not in ALLOWED_PLACEHOLDER:
         ph = "default"
-    code = find_thumb(row["posted_at"])
-    if code:
+    code = find_code(row["posted_at"])
+    thumb_file = thumbs_map.get(rid)
+    if thumb_file:
         matched_thumbs += 1
     posted_iso = datetime.strptime(row["posted_at"], "%Y-%m-%d %H:%M:%S").isoformat() + "+09:00"
     rec = {
@@ -103,8 +112,8 @@ for row in inputs:
         "moodTags": mood,
         "placeholderCategory": ph,
     }
-    if code:
-        rec["thumbnailUrl"] = f"/images/thumbs/{code}.jpg"
+    if thumb_file:
+        rec["thumbnailUrl"] = f"/images/thumbs/{thumb_file}"
     if t.get("cuisine") in ("和", "洋", "中", "韓", "エスニック", "その他"):
         rec["cuisine"] = t["cuisine"]
     if t.get("difficulty") in ("かんたん", "ふつう", "本格"):
