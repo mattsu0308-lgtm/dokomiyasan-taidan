@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 実データCSV(Metaエクスポート由来・字幕全文入り)はリポジトリに含めない
+/reels_cleaned.csv

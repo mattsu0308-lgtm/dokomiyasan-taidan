@@ -1,4 +1,9 @@
-import { seedRecipes, seedCollections } from "@/data/seed-recipes";
+// Phase 2(2026-07-09): 実データ(reels_cleaned.csv由来156本)に切り替え。
+// サンプルseedは @/data/seed-recipes に残置(検証用)。
+import {
+  realRecipes as seedRecipes,
+  realCollections as seedCollections,
+} from "@/data/recipes.generated";
 import type {
   CollectionViewModel,
   CollectionWithRecipes,
